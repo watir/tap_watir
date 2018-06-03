@@ -1,9 +1,14 @@
 RSpec.describe TapWatir do
-  it "has a version number" do
-    expect(TapWatir::VERSION).not_to be nil
-  end
+  it "opens Chrome" do
+    appium_url = 'http://localhost:4723/wd/hub'
+    caps = {platformName: 'Android',
+            platformVersion: '8.1',
+            deviceName: 'Nexus',
+            browserName: 'Chrome'}
 
-  it "does something useful" do
-    expect(false).to eq(true)
+    browser = TapWatir::App.browser(url: appium_url, desired_capabilities: caps)
+    browser.goto "http://watir.com/"
+    expect(browser.url).to eq "http://watir.com/"
+    browser.close
   end
 end
