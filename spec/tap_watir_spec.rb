@@ -33,11 +33,4 @@ RSpec.describe TapWatir do
     xit "opens Native App Real Device Cloud"
   end
 
-  context "with iOS" do
-    xit "opens Browser on Mobile Device"
-    xit "opens Native App Locally"
-    xit "opens Native App EmuSim"
-    xit "opens Native App Real Device Cloud"
-  end
-
 end
