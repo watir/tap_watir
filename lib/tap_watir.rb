@@ -6,9 +6,6 @@ module TapWatir
 
 
     # How currently it was sending the options
-    def self.browser(opts)
-      MobileBrowser.new opts
-    end
 
 
 
@@ -36,8 +33,6 @@ module TapWatir
     def initialize(opts)
       # What is `target` here?
       # Is this even the right class to initialize?
-
-
       @driver = Appium::Core::Driver.for(self, opts).start_driver
     end
 
@@ -45,8 +40,6 @@ module TapWatir
 
   class MobileBrowser < Watir::Browser
     def initialize(opts)
-
-
       @browser = super Selenium::WebDriver.for(:remote, opts)
     end
   end
