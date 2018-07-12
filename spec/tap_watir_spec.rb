@@ -47,7 +47,7 @@ RSpec.describe TapWatir do
             buildName: "Hybrid application test using emu/sim",
             automationName: 'XCUITest',
             wait: '50',
-            url: "http://prakhar.rawat:dd8fe191-94aa-4178-8bbe-26416c886112@ondemand.saucelabs.com:80/wd/hub",
+            url: "http://username:access_key@ondemand.saucelabs.com:80/wd/hub",
             sauce_username: ENV['SAUCE_LABS'] ? ENV['SAUCE_USERNAME'] : nil,
             sauce_access_key: ENV['SAUCE_LABS'] ? ENV['SAUCE_ACCESS_KEY'] : nil
         }
@@ -63,10 +63,7 @@ RSpec.describe TapWatir do
 
 
 
-    it "opens Native App Real Device Cloud" do
-
-
-    end
+    xit "opens Native App Real Device Cloud"
   end
 
   context "with iOS" do``
@@ -94,7 +91,6 @@ RSpec.describe TapWatir do
           # platformVersion: "11.4",
           platformName: "iOS",
           # deviceName: "iPhone X",
-          # udid: 'D30DF733-9D7E-47C7-BAC3-F947F2F1B82E',
           # automationName: "XCUITest",
           app: "/Users/prakharrawat/Documents/Address_Book.ipa"
           # app: "https://github.com/address-book/address_book_ios/blob/master/Address_Book.ipa"
@@ -112,7 +108,7 @@ RSpec.describe TapWatir do
           deviceName: "iPhone X Simulator",
           app: "sauce-storage:log.ipa",
           buildName: "Native and Hybrid test on iOS Sauce",
-          url: "http://prakhar.rawat:dd8fe191-94aa-4178-8bbe-26416c886112@ondemand.saucelabs.com:80/wd/hub",
+          url: "http://username:access_key@ondemand.saucelabs.com:80/wd/hub",
           name: "iOS Tests on EmuSIm",
           # browserName: "Safari",
           # appiumVersion: "1.6.2",
