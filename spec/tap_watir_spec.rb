@@ -120,7 +120,6 @@ RSpec.describe TapWatir do
         app  = TapWatir::MobileBrowser.new(url:newUrl,desired_capabilities:opts)
         app.close
     end
-
     xit "opens Native App Real Device Cloud"
   end
 
