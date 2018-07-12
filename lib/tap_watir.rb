@@ -40,9 +40,9 @@ module TapWatir
 
   class MobileBrowser < Watir::Browser
     def initialize(opts)
-      puts "\n\n\n\n\n\n"
+      # puts "\n\n\n\n\n\n"
       # puts opts.to_s
-      puts "\n\n\n\n\n"
+      # puts "\n\n\n\n\n"
       @browser = super Selenium::WebDriver.for(:remote, opts)
     end
   end
