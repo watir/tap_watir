@@ -38,7 +38,7 @@ To get the specs to run:
 * Install Android Studio
 * Create a Virtual Device named Nexus using Android 8.1
 * Install Appium Desktop v1.6.2 
-* Download Chromedriver 2.34 and specify its location in Appium Desktop Advanced Tab
+* Download [Chromedriver 2.34](https://chromedriver.storage.googleapis.com/index.html?path=2.34/) and specify its location in Appium Desktop Advanced Tab
 * Start the Appium server.
 
 ## Contributing
