@@ -86,7 +86,7 @@ RSpec.describe TapWatir do
           platformVersion: "11.4",
           platformName: "iOS",
           deviceName: "iPhone X",
-          app: "/Users/prakharrawat/Documents/Address_Book.ipa"
+          app: "/Users/prakharrawat/Documents/sauce_sample_ios.ipa"
       }
 
       app = TapWatir::App.new(caps: opts)
