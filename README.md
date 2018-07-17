@@ -28,15 +28,18 @@ caps = {platformName: 'Android',
         deviceName: 'Nexus',
         browserName: 'Chrome'}
 
-browser = TapWatir::App.browser(url: appium_url, desired_capabilities: caps)
+browser = TapWatir::MobileBrowser.new(url: appium_url, 
+                                           desired_capabilities: caps)
 ```
 
 ## Development
 
 To get the specs to run:
 * Install Android Studio
-* Create a Virtual Device with a Nexus using version 8.1
-* Install Appium and start the server.
+* Create a Virtual Device named Nexus using Android 8.1
+* Install Appium Desktop v1.6.2 
+* Download Chromedriver 2.34 and specify its location in Appium Desktop Advanced Tab
+* Start the Appium server.
 
 ## Contributing
 
