@@ -48,7 +48,7 @@ RSpec.describe TapWatir do
     end
 
     it "opens Native App Real Device Cloud" do
-      opts = {testobject_api_key: "B5CC080A41984A94BF791F3275332A73",
+      opts = {testobject_api_key: "8F2F32BE1A1442C4A13E1B82F1D9706D",
               platformName: "Android",
               deviceName: "LG Nexus 5X",
               url: "https://us1.appium.testobject.com/wd/hub",
@@ -113,7 +113,17 @@ RSpec.describe TapWatir do
     end
 
     it "opens Native App Real Device Cloud" do
+      opts = {testobject_api_key: "0BA1C0F41E464EE686F887DBA5910545",
+              platformName: "iOS",
+              platformVersion: "10.0",
+              url: "https://us1.appium.testobject.com/wd/hub"
+      }
 
+      app = TapWatir::App.new(caps: opts)
+
+      expect(app.driver).to be_a(Appium::Core::Base::Driver)
+      puts app.driver.window_size
+      app.close
     end
 
   end
