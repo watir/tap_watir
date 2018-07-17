@@ -35,7 +35,7 @@ RSpec.describe TapWatir do
               deviceName: "Android GoogleAPI Emulator",
               app: "https://github.com/address-book/mobile_apps/blob/master/AddressBook.apk?raw=true",
               name: "Hybrid application test using emu/sim",
-              build: "TapWatir Tests",
+              build: "TapWatir Tests Android",
               appWaitActivity: "com.address.book.MainActivity",
               url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.saucelabs.com:80/wd/hub",
               sauce_username: ENV['SAUCE_USERNAME'],
@@ -86,7 +86,7 @@ RSpec.describe TapWatir do
           platformVersion: "11.4",
           platformName: "iOS",
           deviceName: "iPhone X",
-          app: "/Users/prakharrawat/Documents/sauce_sample_ios.ipa"
+          app: "https://github.com/prakharrr/tap_watir/blob/ios_spec/sauce_sample_ios.ipa?raw=true"
       }
 
       app = TapWatir::App.new(caps: opts)
@@ -99,20 +99,19 @@ RSpec.describe TapWatir do
           platformName: "iOS",
           platformVersion: "11.0",
           deviceName: "iPhone X Simulator",
-          app: "sauce-storage:log.ipa",
+          app: "https://github.com/prakharrr/tap_watir/blob/ios_spec/sauce_sample_ios.ipa?raw=true",
           buildName: "Native and Hybrid test on iOS Sauce",
-          url: "http://username:access_key@ondemand.saucelabs.com:80/wd/hub",
-          name: "iOS Tests on EmuSIm",
-          # browserName: "Safari",
-          # appiumVersion: "1.6.2",
-          sauce_username:   ENV['SAUCE_LABS'] ? ENV['SAUCE_USERNAME'] : nil,
-          sauce_access_key: ENV['SAUCE_LABS'] ? ENV['SAUCE_ACCESS_KEY'] : nil,
+          name: "TapWatir tests iOS",
+          url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.saucelabs.com:80/wd/hub",
+          sauce_username: ENV['SAUCE_USERNAME'],
+          sauce_access_key: ENV['SAUCE_ACCESS_KEY']
 
       }
-      newUrl = opts.delete(:url)
-      app  = TapWatir::MobileBrowser.new(url:newUrl,desired_capabilities:opts)
+      app = TapWatir::App.new(caps: opts)
+      expect(app.driver).to be_a(Appium::Core::Base::Driver)
       app.close
     end
+
     it "opens Native App Real Device Cloud" do
 
     end
