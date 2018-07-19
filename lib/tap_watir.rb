@@ -1,10 +1,9 @@
-require "watir"
+require 'watir'
 require 'appium_lib_core'
 require 'appium/driver'
 
 module TapWatir
   class App
-
     attr_accessor :driver
 
     def initialize(opts)
@@ -16,7 +15,6 @@ module TapWatir
       @driver.quit
     end
     alias_method :close, :quit
-
   end
 
   class MobileBrowser < Watir::Browser
