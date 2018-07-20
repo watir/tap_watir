@@ -113,11 +113,10 @@ RSpec.describe TapWatir do
     end
 
     it "opens Native App Real Device Cloud" do
-      opts = {testobject_api_key: "0BA1C0F41E464EE686F887DBA5910545",
-              platformName: "iOS",
-              platformVersion: "10.0",
-              url: "https://us1.appium.testobject.com/wd/hub"
-      }
+      opts = { testobject_api_key: "0BA1C0F41E464EE686F887DBA5910545",
+               platformName: "iOS",
+               platformVersion: "10.0",
+               url: "https://us1.appium.testobject.com/wd/hub" }
 
       app = TapWatir::App.new(caps: opts)
 
@@ -125,7 +124,5 @@ RSpec.describe TapWatir do
       puts app.driver.window_size
       app.close
     end
-
   end
-
 end
