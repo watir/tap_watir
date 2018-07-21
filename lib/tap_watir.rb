@@ -18,8 +18,8 @@ module TapWatir
     end
     alias_method :close, :quit
 
-    def element
-      Element.new
+    def element(selector)
+      Element.new(driver, selector)
     end
 
     def method_missing(method_name, *arguments, &block)
