@@ -24,6 +24,6 @@ RSpec.configure do |config|
     $app = TapWatir::App.new(caps: opts)
   end
 
-#  config.after(:suite) { @browser.close }
+  config.after(:suite) { $app.close }
 
 end
