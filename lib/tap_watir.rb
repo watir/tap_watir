@@ -1,6 +1,7 @@
 require "watir"
 require 'appium_lib_core'
 require 'appium/driver'
+require 'tap_watir/element'
 
 module TapWatir
   class App
@@ -16,6 +17,10 @@ module TapWatir
       @driver.quit
     end
     alias_method :close, :quit
+
+    def element
+      Element.new
+    end
 
     def method_missing(method_name, *arguments, &block)
       if driver.respond_to? method_name
