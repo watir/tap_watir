@@ -9,7 +9,10 @@ RSpec.describe TapWatir::App do
 
   describe "#element" do
     it 'returns a TapWatir Element' do
-      expect($app.element).to be_a TapWatir::Element #evaluates the instance of tap watir element
+      expect($app.element(xpath: "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.widget.Button
+")).to be_a TapWatir::Element #evaluates the instance of tap watir element
+
+      # by evaluating an xpath element with the tapwatir::element should be true bc 'locate'
     end
   end
 end
