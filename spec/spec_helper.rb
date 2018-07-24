@@ -12,4 +12,19 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.before(:suite) do
+    opts = {url: 'http://localhost:4723/wd/hub',
+            platformName: "Android",
+            platformVersion: "8.1",
+            deviceName: "Nexus",
+            appWaitActivity: "com.address.book.MainActivity",
+            app: "https://github.com/address-book/mobile_apps/blob/master/AddressBook.apk?raw=true"}
+
+    $app = TapWatir::App.new(caps: opts)
+  end
+
+  config.after(:suite) do
+    $app.close
+  end
 end
