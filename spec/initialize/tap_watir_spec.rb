@@ -64,10 +64,10 @@ RSpec.describe TapWatir do
   context 'with iOS' do
     it 'opens Browser on Mobile Device' do
       opts = {url: 'http://localhost:4723/wd/hub',
-        platformVersion: '11.4',
-        deviceName: 'iPhone X',
-        platformName: 'iOS',
-        browserName: 'Safari'}
+              platformVersion: '11.4',
+              deviceName: 'iPhone X',
+              platformName: 'iOS',
+              browserName: 'Safari'}
 
       browser = TapWatir::MobileBrowser.new(url: opts[:url], desired_capabilities: opts)
       browser.goto 'a.testaddressbook.com'

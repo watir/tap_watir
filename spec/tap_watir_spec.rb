@@ -10,7 +10,7 @@ RSpec.describe TapWatir::App do
 
   describe '#element' do
     it 'returns a TapWatir Element' do
-      expect($app.element).to be_a TapWatir::Element
+      expect($app.element(id: 'android:id/statusBarBackground')).to be_a TapWatir::Element
     end
   end
 end
