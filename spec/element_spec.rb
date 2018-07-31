@@ -27,4 +27,20 @@ RSpec.describe TapWatir::Element do
       expect(element.wd).to be_a Selenium::WebDriver::Element
     end
   end
+
+  describe '#exist?' do
+    it 'checks if the element exists' do
+      expect($app.element(id: 'com.address.book:id/progressBar')).to exist
+    end
+
+    it 'checks if the element does not exists' do
+      expect($app.element(id: 'NotAnElement')).not_to exist
+    end
+
+    it 'exists if previously located' do
+      element = $app.element(id: 'android:id/statusBarBackground')
+      element.wd
+      expect(element).to exist
+    end
+  end
 end

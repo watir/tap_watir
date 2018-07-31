@@ -14,10 +14,25 @@ module TapWatir
       @element || locate
     end
 
+    def exists?
+      assert_exists
+      true
+    rescue Watir::Exception::UnknownObjectException
+      false
+    end
+
     private
 
     def locate
       @element = @driver.find_element(@selector.keys.first, @selector.values.first)
+    rescue Selenium::WebDriver::Error::NoSuchElementError
+      nil
+    end
+
+    def assert_exists
+      locate unless @element
+      return if @element
+      raise Watir::Exception::UnknownObjectException
     end
   end
 end
