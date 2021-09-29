@@ -21,12 +21,13 @@ module TapWatir
       false
     end
 
-    def visible?
+    def present?
       assert_exists
       @element.displayed?
     rescue Watir::Exception::UnknownObjectException
       false
     end
+    alias visible? present?
 
     private
 
@@ -39,6 +40,7 @@ module TapWatir
     def assert_exists
       locate unless @element
       return if @element
+
       raise Watir::Exception::UnknownObjectException
     end
   end
