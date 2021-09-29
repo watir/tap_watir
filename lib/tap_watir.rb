@@ -7,14 +7,14 @@ require 'tap_watir/element'
 
 module TapWatir
   #
-  # For driving a native application or or a native app context
+  # For driving a native application or a native app context
   #
   class App
     attr_accessor :driver
 
     def initialize(opts)
       url = opts[:caps].delete(:url)
-      @driver = Appium::Core.for(self, opts).start_driver(server_url: url)
+      @driver = Appium::Core::Driver.for(opts).start_driver(server_url: url)
     end
 
     def quit
