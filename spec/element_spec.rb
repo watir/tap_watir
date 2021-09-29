@@ -63,4 +63,14 @@ RSpec.describe TapWatir::Element do
       expect($app.element(id: 'NotAnElement')).not_to be_visible
     end
   end
+
+  describe '#enabled?' do
+    it 'checks if the element is enabled' do
+      expect($app.element(id: 'com.address.book:id/progressBar')).to be_enabled
+    end
+
+    it 'checks if the element is not enabled' do
+      expect($app.element(id: 'NotAnElement')).not_to be_enabled
+    end
+  end
 end

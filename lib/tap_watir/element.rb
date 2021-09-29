@@ -29,6 +29,13 @@ module TapWatir
     end
     alias visible? present?
 
+    def enabled?
+      assert_exists
+      @element.enabled?
+    rescue Watir::Exception::UnknownObjectException
+      false
+    end
+
     private
 
     def locate
