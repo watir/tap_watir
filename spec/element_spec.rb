@@ -44,6 +44,16 @@ RSpec.describe TapWatir::Element do
     end
   end
 
+  describe '#present?' do
+    it 'checks if the element is present' do
+      expect($app.element(id: 'com.address.book:id/progressBar')).to be_present
+    end
+
+    it 'checks if the element is not present' do
+      expect($app.element(id: 'NotAnElement')).not_to be_present
+    end
+  end
+
   describe '#visible?' do
     it 'checks if the element is visible' do
       expect($app.element(id: 'com.address.book:id/progressBar')).to be_visible
