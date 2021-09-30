@@ -4,6 +4,7 @@ require 'watir'
 require 'appium_lib_core'
 require 'appium/driver'
 require 'tap_watir/element'
+require 'tap_watir/screenshot'
 
 module TapWatir
   #
@@ -24,6 +25,10 @@ module TapWatir
 
     def element(selector)
       Element.new(driver, selector)
+    end
+
+    def screenshot
+      Screenshot.new(@driver)
     end
 
     def method_missing(method_name, *arguments, &block)
