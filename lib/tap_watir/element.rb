@@ -1,10 +1,15 @@
 # frozen_string_literal: true
 
+require_relative 'wait'
+
 module TapWatir
+
   #
   # This is a element in the native app context
   #
   class Element
+    include Waitable
+
     def initialize(driver, selector)
       @driver = driver
       @selector = selector
@@ -20,6 +25,7 @@ module TapWatir
     rescue Watir::Exception::UnknownObjectException
       false
     end
+    alias exist? exists?
 
     def present?
       assert_exists
