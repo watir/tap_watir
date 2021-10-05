@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'wait'
+require_relative 'gestures'
 
 module TapWatir
 
@@ -9,6 +10,7 @@ module TapWatir
   #
   class Element
     include Waitable
+    include Gestures
 
     def initialize(driver, selector)
       @driver = driver
