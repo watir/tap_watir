@@ -44,6 +44,15 @@ module TapWatir
       false
     end
 
+    def coordinates
+      @element.location
+    end
+    alias location coordinates
+
+    def size
+      @element.size
+    end
+
     private
 
     def locate

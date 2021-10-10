@@ -73,4 +73,22 @@ RSpec.describe TapWatir::Element do
       expect($app.element(id: 'NotAnElement')).not_to be_enabled
     end
   end
+
+  describe '#coordinates' do
+    it 'returns element coordinates' do
+      element = $app.element(accessibility_id: 'Welcome to Address Book').wait_until(&:present?)
+      coordinates = element.coordinates
+      expect(coordinates.x).to be_kind_of Integer
+      expect(coordinates.y).to be_kind_of Integer
+    end
+  end
+
+  describe '#size' do
+    it 'returns element size' do
+      element = $app.element(accessibility_id: 'Welcome to Address Book').wait_until(&:present?)
+      size = element.size
+      expect(size.width).to be_kind_of Integer
+      expect(size.height).to be_kind_of Integer
+    end
+  end
 end

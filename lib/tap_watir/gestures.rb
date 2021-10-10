@@ -10,5 +10,27 @@ module TapWatir
       action.tap(element: wd).perform
     end
     alias press tap
+
+    def swipe(opts)
+      if opts.fetch :start_element
+        start_element = opts.fetch :start_element
+        coordinates = start_element.coordinates
+        start_x = coordinates.x
+        start_y = coordinates.y
+      else
+        start_x = opts.fetch :start_x
+        start_y = opts.fetch :start_y
+      end
+      if opts.fetch :end_element
+        end_element = opts.fetch :end_element
+        coordinates = end_element.coordinates
+        end_x = coordinates.x
+        end_y = coordinates.y
+      else
+        end_x = opts.fetch :end_x
+        end_y = opts.fetch :end_y
+      end
+      action.swipe(start_x: start_x, start_y: start_y, end_x: end_x, end_y: end_y, duration: duration).perform
+    end
   end
 end
