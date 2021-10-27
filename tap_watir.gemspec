@@ -39,5 +39,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '~> 0.50'
 
   spec.add_dependency 'appium_lib_core', '~>5.0.0.rc1'
-  spec.add_dependency 'watir', '~> 6.0'
+  spec.add_dependency 'watir', '~> 7.0'
 end
