@@ -13,7 +13,7 @@ module TapWatir
     alias press tap
 
     def double_tap
-      action.double_tap(element: wd).perform
+      2.times { tap }
     end
 
     def swipe_to(opts)
