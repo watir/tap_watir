@@ -25,7 +25,7 @@ RSpec.describe TapWatir::Element do
   end
 
   it '#two_finger_tap' do
-    toggle_element = $app.element(accessibility_id: 'Toggle navigation').wait_until(&:present?)
+    toggle_element = $app.element(xpath: 'Toggle navigation').wait_until(&:present?)
     toggle_element.two_finger_tap
     menu_home_option = $app.element(accessibility_id: 'Home (current)')
     expect(menu_home_option.wait_until(&:present?)).to eq menu_home_option

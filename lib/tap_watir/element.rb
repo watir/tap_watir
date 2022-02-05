@@ -53,6 +53,10 @@ module TapWatir
       @element.size
     end
 
+    def bounds
+      {x: coordinates.x + size.width, y: coordinates.y + size.height}
+    end
+
     private
 
     def locate

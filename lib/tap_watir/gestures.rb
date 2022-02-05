@@ -1,13 +1,26 @@
 require 'appium_lib_core/common/touch_action/touch_actions'
+require 'selenium/webdriver/common/interactions/interactions'
 
 module TapWatir
   module Gestures
-    def action
-      Appium::Core::TouchAction.new(@driver)
+
+    VIEWPORT = ::Selenium::WebDriver::Interactions::PointerMove::VIEWPORT
+
+    def action(kind, name)
+      @driver.action.add_pointer_input(kind, name)
+    end
+
+    def perform(*actions)
+      @driver.perform_actions actions
     end
 
     def tap
-      action.tap(element: wd).perform
+      finger_tap = action(:touch, 'finger_tap')
+      finger_tap.create_pointer_move(duration: 0.1, x: bounds[:x], y: bounds[:y], origin: VIEWPORT)
+      finger_tap.create_pointer_down(:left)
+      finger_tap.create_pause(0.1)
+      finger_tap.create_pointer_up(:left)
+      perform finger_tap
     end
 
     alias press tap

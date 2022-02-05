@@ -91,4 +91,14 @@ RSpec.describe TapWatir::Element do
       expect(size.height).to be_kind_of Integer
     end
   end
+
+
+  describe '#bounds' do
+    it 'returns element size' do
+      element = $app.element(accessibility_id: 'Welcome to Address Book').wait_until(&:present?)
+      bounds = element.bounds
+      expect(bounds[:x]).to be_kind_of Integer
+      expect(bounds[:y]).to be_kind_of Integer
+    end
+  end
 end
