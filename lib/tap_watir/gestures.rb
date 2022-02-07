@@ -15,18 +15,25 @@ module TapWatir
     end
 
     def tap
-      finger_tap = action(:touch, 'finger_tap')
-      finger_tap.create_pointer_move(duration: 0.1, x: bounds[:x], y: bounds[:y], origin: VIEWPORT)
-      finger_tap.create_pointer_down(:left)
-      finger_tap.create_pause(0.1)
-      finger_tap.create_pointer_up(:left)
-      perform finger_tap
+      tap = action(:touch, 'tap')
+      tap.create_pointer_move(duration: 0.1, x: bounds[:x], y: bounds[:y], origin: VIEWPORT)
+      tap.create_pointer_down(:left)
+      tap.create_pointer_up(:left)
+      perform tap
     end
 
     alias press tap
 
     def double_tap
-      2.times { tap }
+      double_tap = action(:touch, 'double_tap')
+      double_tap.create_pointer_move(duration: 0.1, x: bounds[:x], y: bounds[:y], origin: VIEWPORT)
+      double_tap.create_pointer_down(:left)
+      double_tap.create_pointer_up(:left)
+      double_tap.create_pause(0.5)
+      double_tap.create_pointer_down(:left)
+      double_tap.create_pointer_up(:left)
+
+      perform double_tap
     end
 
     def swipe_to(opts)
