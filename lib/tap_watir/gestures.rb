@@ -36,10 +36,29 @@ module TapWatir
       perform double_tap
     end
 
+    def two_finger_tap
+      first_finger = action(:touch, 'first_finger')
+      first_finger.create_pointer_move(duration: 1, x: bounds[:x], y: bounds[:y], origin: VIEWPORT)
+      first_finger.create_pause(0.5)
+      first_finger.create_pointer_down(:left)
+      first_finger.create_pause(0.5)
+      first_finger.create_pointer_up(:left)
+
+      second_finger = action(:touch, 'second_finger')
+      second_finger.create_pointer_move(duration: 1, x: bounds[:x], y: bounds[:y], origin: VIEWPORT)
+      first_finger.create_pause(0.5)
+      second_finger.create_pointer_down(:left)
+      second_finger.create_pause(0.5)
+      second_finger.create_pointer_up(:left)
+
+      perform first_finger, second_finger
+    end
+
     def swipe_to(opts)
-      start_x = coordinates.x
-      start_y = coordinates.y
-      if opts.fetch :end_element
+      if opts.fetch :start_element
+        start_x = coordinates.x
+        start_y = coordinates.y
+      elsif opts.fetch :end_element
         end_element = opts.fetch :end_element
         coordinates = end_element.coordinates
         end_x = coordinates.x
@@ -53,10 +72,6 @@ module TapWatir
                    end_x: end_x,
                    end_y: end_y,
                    duration: opts.fetch(:duration)).perform
-    end
-
-    def two_finger_tap
-      action.two_finger_tap(element: wd).perform
     end
   end
 end
