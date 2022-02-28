@@ -4,17 +4,18 @@ require 'watir'
 require 'appium_lib_core'
 require 'appium/driver'
 require 'tap_watir/element'
+require 'tap_watir/screenshot'
 
 module TapWatir
   #
-  # For driving a native application or or a native app context
+  # For driving a native application or a native app context
   #
   class App
     attr_accessor :driver
 
     def initialize(opts)
       url = opts[:caps].delete(:url)
-      @driver = Appium::Core.for(self, opts).start_driver(server_url: url)
+      @driver = Appium::Core::Driver.for(opts).start_driver(server_url: url)
     end
 
     def quit
@@ -24,6 +25,10 @@ module TapWatir
 
     def element(selector)
       Element.new(driver, selector)
+    end
+
+    def screenshot
+      Screenshot.new(@driver)
     end
 
     def method_missing(method_name, *arguments, &block)

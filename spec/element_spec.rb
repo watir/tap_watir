@@ -43,4 +43,62 @@ RSpec.describe TapWatir::Element do
       expect(element).to exist
     end
   end
+
+  describe '#present?' do
+    it 'checks if the element is present' do
+      expect($app.element(id: 'com.address.book:id/progressBar')).to be_present
+    end
+
+    it 'checks if the element is not present' do
+      expect($app.element(id: 'NotAnElement')).not_to be_present
+    end
+  end
+
+  describe '#visible?' do
+    it 'checks if the element is visible' do
+      expect($app.element(id: 'com.address.book:id/progressBar')).to be_visible
+    end
+
+    it 'checks if the element is not visible' do
+      expect($app.element(id: 'NotAnElement')).not_to be_visible
+    end
+  end
+
+  describe '#enabled?' do
+    it 'checks if the element is enabled' do
+      expect($app.element(id: 'com.address.book:id/progressBar')).to be_enabled
+    end
+
+    it 'checks if the element is not enabled' do
+      expect($app.element(id: 'NotAnElement')).not_to be_enabled
+    end
+  end
+
+  describe '#coordinates' do
+    it 'returns element coordinates' do
+      element = $app.element(accessibility_id: 'Welcome to Address Book').wait_until(&:present?)
+      coordinates = element.coordinates
+      expect(coordinates.x).to be_kind_of Integer
+      expect(coordinates.y).to be_kind_of Integer
+    end
+  end
+
+  describe '#size' do
+    it 'returns element size' do
+      element = $app.element(accessibility_id: 'Welcome to Address Book').wait_until(&:present?)
+      size = element.size
+      expect(size.width).to be_kind_of Integer
+      expect(size.height).to be_kind_of Integer
+    end
+  end
+
+
+  describe '#bounds' do
+    it 'returns element size' do
+      element = $app.element(accessibility_id: 'Welcome to Address Book').wait_until(&:present?)
+      bounds = element.bounds
+      expect(bounds[:x]).to be_kind_of Integer
+      expect(bounds[:y]).to be_kind_of Integer
+    end
+  end
 end
