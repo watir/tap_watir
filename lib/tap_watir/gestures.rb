@@ -37,41 +37,31 @@ module TapWatir
     end
 
     def two_finger_tap
-      first_finger = action(:touch, 'first_finger')
-      first_finger.create_pointer_move(duration: 1, x: bounds[:x], y: bounds[:y], origin: VIEWPORT)
-      first_finger.create_pause(0.5)
+      first_finger = action(:touch, 'finger1')
+      first_finger.create_pointer_move(duration: 1, x: bounds[:x] - 100, y: bounds[:y] - 50, origin: VIEWPORT)
       first_finger.create_pointer_down(:left)
-      first_finger.create_pause(0.5)
+      first_finger.create_pause(0.0925)
       first_finger.create_pointer_up(:left)
+      first_finger.create_pause(0.0925)
 
-      second_finger = action(:touch, 'second_finger')
-      second_finger.create_pointer_move(duration: 1, x: bounds[:x], y: bounds[:y], origin: VIEWPORT)
-      first_finger.create_pause(0.5)
+      second_finger = action(:touch, 'finger2')
+      second_finger.create_pointer_move(duration: 1, x: 500, y: 1000, origin: VIEWPORT)
       second_finger.create_pointer_down(:left)
-      second_finger.create_pause(0.5)
+      second_finger.create_pause(0.0925)
+      second_finger.create_pause(0.0925)
       second_finger.create_pointer_up(:left)
 
       perform first_finger, second_finger
     end
 
-    def swipe_to(opts)
-      if opts.fetch :start_element
-        start_x = coordinates.x
-        start_y = coordinates.y
-      elsif opts.fetch :end_element
-        end_element = opts.fetch :end_element
-        coordinates = end_element.coordinates
-        end_x = coordinates.x
-        end_y = coordinates.y
-      else
-        end_x = opts.fetch :end_x
-        end_y = opts.fetch :end_y
-      end
-      action.swipe(start_x: start_x,
-                   start_y: start_y,
-                   end_x: end_x,
-                   end_y: end_y,
-                   duration: opts.fetch(:duration)).perform
+    def swipe(**args)
+      finger = action(:touch, 'swipe')
+      finger.create_pointer_move(duration: 1, x: 0, y: 0, origin: VIEWPORT)
+      finger.create_pointer_down(:left)
+      finger.create_pointer_move(duration: 1, x: 500, y: 1000, origin: VIEWPORT)
+      finger.create_pointer_up(:left)
+
+      perform finger
     end
   end
 end
