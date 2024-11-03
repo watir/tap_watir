@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
     spec.metadata['allowed_push_host'] = 'https://rubygems.org'
   else
     raise 'RubyGems 2.0 or newer is required to protect against ' \
-      'public gem pushes.'
+            'public gem pushes.'
   end
 
   # Specify which files should be added to the gem when it is released.
@@ -31,13 +31,13 @@ Gem::Specification.new do |spec|
   end
 
   spec.require_paths = ['lib']
-  spec.required_ruby_version = '>= 2.3.0'
+  spec.required_ruby_version = '>= 3.1.6'
 
-  spec.add_development_dependency 'bundler', '~> 1.16'
-  spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'rubocop', '~> 0.50'
+  spec.add_development_dependency 'bundler', '~> 2.5'
+  spec.add_development_dependency 'rake', '~> 13.2'
+  spec.add_development_dependency 'rspec', '~> 3.13'
+  spec.add_development_dependency 'rubocop', '~> 1.68'
 
-  spec.add_dependency 'appium_lib_core', '~> 1.0'
-  spec.add_dependency 'watir', '~> 6.0'
+  spec.add_dependency 'appium_lib_core', '~> 7.1'
+  spec.add_dependency 'watir', '~> 7.3'
 end

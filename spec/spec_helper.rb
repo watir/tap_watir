@@ -17,8 +17,9 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     opts = {url: 'http://localhost:4723/wd/hub',
+            automationName: 'UiAutomator2',
             platformName: 'Android',
-            platformVersion: '8.1',
+            platformVersion: '13',
             deviceName: 'Nexus',
             appWaitActivity: 'com.address.book.MainActivity',
             app: 'https://github.com/address-book/mobile_apps/blob/master/AddressBook.apk?raw=true'}

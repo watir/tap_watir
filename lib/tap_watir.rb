@@ -14,7 +14,7 @@ module TapWatir
 
     def initialize(opts)
       url = opts[:caps].delete(:url)
-      @driver = Appium::Core.for(self, opts).start_driver(server_url: url)
+      @driver = Appium::Core::Driver.for(opts).start_driver(server_url: url)
     end
 
     def quit
