@@ -5,7 +5,7 @@ require 'spec_helper'
 RSpec.describe TapWatir::App do
   it 'delegates calls to driver' do
     expect($app.respond_to?(:session_capabilities))
-    expect($app.session_capabilities).to be_a Selenium::WebDriver::Remote::W3C::Capabilities
+    expect($app.session_capabilities).to be_a Selenium::WebDriver::Remote::Capabilities
   end
 
   describe '#element' do
